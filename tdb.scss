@@ -1,0 +1,82 @@
+//flc
+
+body {
+  background-color: #F8B195;
+  margin: 90px;
+  background: -webkit-linear-gradient(left top, #E5FCC2 , #547980);
+  background: -o-linear-gradient(bottom right, #E5FCC2 , #547980);
+  background: -moz-linear-gradient(bottom right, #E5FCC2 , #547980);
+  background: linear-gradient(to bottom right, #E5FCC2 , #547980);
+}
+
+.items {
+  display: flex;
+  .item {
+    height: auto;
+    width: 250px;
+    margin: 30px;
+    background: #45ADA8;
+    background: -webkit-linear-gradient(#45ADA8 , #9DE0AD);
+    background: -o-linear-gradient(#45ADA8 , #9DE0AD);
+    background: -moz-linear-gradient(#45ADA8 , #9DE0AD);
+    background: linear-gradient(#45ADA8 , #9DE0AD);
+    border-radius: 3px;
+    // border: 1px solid #594F4F;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.65);
+    position: relative;
+    .inner {
+      text-align: center;
+      padding: 20px;
+      span {
+        font-family: arial;
+        font-size: 22px;
+        color: #fff;
+      }
+      img {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 3px;
+        border: 2px solid #333;
+      }
+    }
+    .tdb {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 40px;
+      height: 40px;
+      padding-bottom: 10%;
+      border-radius: 50%;
+      border: 2px solid #f5f5f5;
+      overflow: hidden;
+      background: #AF4848;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.65);
+      -webkit-transition: background-color .4s; /* Safari */
+      transition: background-color .4s;
+      &:hover {
+        cursor: pointer;
+        background: darken(#AF4848, 10);
+      }
+      &:focus {
+        outline: none;
+      }
+      i {
+        color: #fff;
+        font-size: 20px;
+        line-height: 35px;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes redPulse {
+  from { background-color: #AF4848; -webkit-box-shadow: 0 0 9px lighten(#AF4848, 10); }
+  50% { background-color: red; -webkit-box-shadow: 0 0 18px red; }
+  to { background-color: #AF4848; -webkit-box-shadow: 0 0 9px lighten(#AF4848, 10); }
+}
+
+button.deleting {
+  -webkit-animation-name: redPulse;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-iteration-count: infinite;
+}
