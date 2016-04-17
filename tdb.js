@@ -1,7 +1,7 @@
 var TDB;
 
 TDB = (function() {
-  var attachEvents, deleteAnimation, deleteOwner, getImportance, getTimeLeft, progress;
+  var attachEvents, deleteAnimation, deleteOwner, getDeleteTime, getTimeLeft, progress;
 
   function TDB() {
     attachEvents();
@@ -19,7 +19,7 @@ TDB = (function() {
     return $button.mousedown(function() {
       var btn_instance, time_until_delete;
       btn_instance = this;
-      time_until_delete = getImportance(this);
+      time_until_delete = getDeleteTime(this);
       deleteAnimation(time_until_delete, btn_instance);
       return pressTimer = setTimeout(function() {
         return deleteOwner(btn_instance);
@@ -31,7 +31,7 @@ TDB = (function() {
     return $(button).parent('.td-object').fadeOut();
   };
 
-  getImportance = function(button) {
+  getDeleteTime = function(button) {
     var importance;
     importance = $(button).data('importance');
     if (!importance) {

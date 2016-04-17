@@ -7,13 +7,19 @@ body {
   background: -o-linear-gradient(bottom right, #E5FCC2 , #547980);
   background: -moz-linear-gradient(bottom right, #E5FCC2 , #547980);
   background: linear-gradient(to bottom right, #E5FCC2 , #547980);
+  font-family: arial;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
 }
 
 .items {
   display: flex;
   justify-content: center;
   .item {
-    height: auto;
+    height: 300px;
     width: 250px;
     margin: 30px;
     background: #45ADA8;
@@ -22,15 +28,19 @@ body {
     background: -moz-linear-gradient(#45ADA8 , #9DE0AD);
     background: linear-gradient(#45ADA8 , #9DE0AD);
     border-radius: 3px;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.65);
     position: relative;
+    -webkit-transition: box-shadow 0.4s; /* Safari */
+    transition: box-shadow 0.4s;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.45);
+    }
     .inner {
       text-align: center;
       padding: 20px;
       span {
-        font-family: arial;
         font-size: 22px;
-        color: #fff;
+        color: #333;
       }
       img {
         width: 100%;
@@ -54,7 +64,7 @@ body {
   border: 2px solid #f5f5f5;
   overflow: hidden;
   background: #AF4848;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.65);
+  // box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.65);
   -webkit-transition: background-color .4s; /* Safari */
   transition: background-color .4s;
   &:hover {

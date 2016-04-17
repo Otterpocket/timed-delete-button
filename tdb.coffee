@@ -13,7 +13,7 @@ class TDB
 
     $button.mousedown ->
       btn_instance = @
-      time_until_delete = getImportance(@)
+      time_until_delete = getDeleteTime(@)
 
       deleteAnimation(time_until_delete, btn_instance)
       pressTimer = setTimeout ->
@@ -23,7 +23,7 @@ class TDB
   deleteOwner = (button) ->
     $(button).parent('.td-object').fadeOut()
 
-  getImportance = (button) ->
+  getDeleteTime = (button) ->
     importance = $(button).data('importance')
     return 200 unless importance
     $(button).data('importance') * 400
