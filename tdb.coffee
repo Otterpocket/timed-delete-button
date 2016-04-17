@@ -9,6 +9,7 @@ class TDB
     $button.mouseup ->
       clearTimeout pressTimer
       $button.removeClass('deleting')
+      $('#progress_bar').remove()
 
     $button.mousedown ->
       btn_instance = @
@@ -20,7 +21,7 @@ class TDB
       ,time_until_delete
 
   deleteOwner = (button) ->
-    $(button).parent('.td-object').fadeOut();
+    $(button).parent('.td-object').fadeOut()
 
   getImportance = (button) ->
     importance = $(button).data('importance')
@@ -29,15 +30,15 @@ class TDB
 
   deleteAnimation = (time, button) ->
     $(button).addClass 'deleting'
-    progress_bar = $(button).prev('#progressBar')
-    progress(time, progress_bar, 100)
+    $(button).before('<div id="progress_bar"><div></div></div>')
+    progress(time, $(button).prev('#progress_bar'), 100)
 
   getTimeLeft = (timeout) ->
     Math.ceil (timeout._idleStart + timeout._idleTimeout - Date.now()) / 1000
 
   progress = (time, $element, percent) ->
-    progressBarWidth = percent * $element.width() / percent
-    $element.find('div').animate({ width: progressBarWidth }, time, "linear")
+    progress_barWidth = percent * $element.width() / percent
+    $element.find('div').animate({ width: progress_barWidth }, time, "linear")
 
 $ ->
   new TDB

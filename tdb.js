@@ -13,7 +13,8 @@ TDB = (function() {
     pressTimer = 0;
     $button.mouseup(function() {
       clearTimeout(pressTimer);
-      return $button.removeClass('deleting');
+      $button.removeClass('deleting');
+      return $('#progress_bar').remove();
     });
     return $button.mousedown(function() {
       var btn_instance, time_until_delete;
@@ -40,10 +41,9 @@ TDB = (function() {
   };
 
   deleteAnimation = function(time, button) {
-    var progress_bar;
     $(button).addClass('deleting');
-    progress_bar = $(button).prev('#progressBar');
-    return progress(time, progress_bar, 100);
+    $(button).before('<div id="progress_bar"><div></div></div>');
+    return progress(time, $(button).prev('#progress_bar'), 100);
   };
 
   getTimeLeft = function(timeout) {
@@ -51,10 +51,10 @@ TDB = (function() {
   };
 
   progress = function(time, $element, percent) {
-    var progressBarWidth;
-    progressBarWidth = percent * $element.width() / percent;
+    var progress_barWidth;
+    progress_barWidth = percent * $element.width() / percent;
     return $element.find('div').animate({
-      width: progressBarWidth
+      width: progress_barWidth
     }, time, "linear");
   };
 
